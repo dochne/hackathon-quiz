@@ -1,0 +1,27 @@
+
+
+<textarea id='foo'>{"eventName": "Hello"}</textarea>
+<button id='butt'>Hello, I'm a butt</button>
+    
+<script>
+    var exampleSocket = new WebSocket("ws://localhost:8090");
+    
+    exampleSocket.onopen = function(){
+        console.log("we're here");
+        exampleSocket.send("Here's some text that the server is urgently awaiting!"); 
+    }
+    // exampleSocket.addEventListener('onopen', function() {
+    //     console.log("We're here");
+        
+    // });
+    
+    exampleSocket.onmessage = function(message){
+        console.log("I got am essage, ty!", message);
+    }
+
+    document.getElementById('butt').onclick = function() {
+        exampleSocket.send(document.getElementById('foo').value);
+    };
+
+
+</script>

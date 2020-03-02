@@ -20,11 +20,13 @@ function makeId(length) {
 }
 
 function emit(event: AppEvent, connection: WebSocket) {
+    console.log("Sending AppEvent to Client", AppEvent);
     connection.send(JSON.stringify(event));
 }
 
 function emitToPlayers(game: Game, event: AppEvent)
 {
+    console.log("Sending AppEvent to all Clients", AppEvent);
     for (var x=0; x < game.players.length; x++) {
         emit(event, playerMap[game.players[x]].connection);
     }
@@ -66,6 +68,7 @@ export default function run(event: AppEvent)
             games[id] = new Game(id);
             // Send the original connection a "enter-game" event
             emit(new AppEvent('enter-game', {gameId: id}), event.connection)
+            console.log("Adding player");
             games[id].addPlayer(player.id);
             emitToPlayers(games[id], new AppEvent('user-entered-game', {gameId: id, playerId: player.id, playerName: player.name}))
             break;

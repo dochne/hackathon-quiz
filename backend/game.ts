@@ -8,6 +8,7 @@ export class Game {
     {
         this.id = id;
         this.playersReady = {};
+        this.players = [];
     }
 
     addPlayer(playerId: string)
@@ -30,5 +31,10 @@ export class Game {
         }
 
         return true;
+    }
+
+    getState()
+    {
+        
     }
 }

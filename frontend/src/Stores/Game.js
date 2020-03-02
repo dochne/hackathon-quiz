@@ -3,7 +3,8 @@ import { writable } from 'svelte/store';
 
 // Our game
 const game = {
-    'id': null
+    'id': null,
+    'players': []
 };
 
 // Export store

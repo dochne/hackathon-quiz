@@ -11,6 +11,7 @@ export let connect = function(user, subscriber) {
         try {
             const event = JSON.parse(message.data);
 
+            console.log("Event received", event);
             // Fire off to subscribers
             subscribers.forEach((subscriber) => {
                 subscriber(event);

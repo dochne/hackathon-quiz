@@ -1,3 +1,9 @@
+<style>
+    .settings {
+        margin-bottom: 20px;
+    }
+</style>
+
 <script>
     import Button from '../Components/Button.svelte'
     import { push } from 'svelte-spa-router'
@@ -37,17 +43,25 @@
 
 </script>
 
-<h1>Settings</h1>
+<div class="row v-center">
+    <div class="container">
 
-<label for="name">Your nickname</label>
-<input type="text" id="name" bind:value={ username } />
+        <div class="settings">
+            <h1>Settings</h1>
 
-<label for="name">Colour</label>
-<input type="text" id="name" bind:value={ colour } />
+            <label for="name">Your nickname</label>
+            <input type="text" id="name" bind:value={ username } />
 
-<label for="name">Image</label>
-<input type="text" id="name" bind:value={ image } />
+            <label for="name">Colour</label>
+            <input type="text" id="name" bind:value={ colour } />
 
+            <label for="name">Image</label>
+            <input type="text" id="name" bind:value={ image } />
+        </div>
 
-<Button label="Save" action="{saveUser}" />
+        <Button label="Save" action="{saveUser}" />
+
+    </div>
+</div>
+
 

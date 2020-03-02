@@ -14,11 +14,10 @@
     }
 </style>
 
-
 <div class="menu">
     <div class="row v-center">
         <div class="container">
-            <Button label="Play with friends" action={() => push("/game")} />
+            <Button label="Play with friends" action={() => push("/initgame")} />
             <Button label="Settings" action={() => push("/settings")} />
         </div>
     </div>

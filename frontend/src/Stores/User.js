@@ -1,6 +1,6 @@
 import { writable } from 'svelte/store';
 
-const settingsVersion = 1;
+const settingsVersion = 2;
 
 // ID generator
 function makeId(length) {
@@ -26,7 +26,7 @@ const userDefaults = {
 // Get from local storage
 const localStorageData = JSON.parse(localStorage.getItem("user"));
 
-// Check if we have user details and they're the current version, otherwise go to settings
+// Check if we have user details and they're the current version, otherwise use defaults
 const userDetails = (localStorageData && localStorageData.settingsVersion >= settingsVersion) ? localStorageData : userDefaults;
 
 // Export store
